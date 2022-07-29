@@ -14,9 +14,9 @@ public:
 
 	std::string getZombieName(void);
 
-	void setZombieName(std::string _name);
+	void setZombie(std::string _name);
 
-	Zombie(std::string name);
+	Zombie();
 
 	~Zombie();
 
@@ -24,7 +24,6 @@ private:
 	std::string _name;
 };
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif

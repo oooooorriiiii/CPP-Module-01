@@ -3,11 +3,9 @@ CFLAGS		:=	-std=c++98 -Wall -Wextra -Werror
 
 NAME		:=	zombie
 
-#INCLUDES	:=	Zombie.h
 SRCS		:=	main.cpp \
 				Zombie.cpp \
-				newZombie.cpp \
-				randomChump.cpp
+				zombieHorde.cpp
 
 OBJS		:=	$(SRCS:.cpp=.o)
 

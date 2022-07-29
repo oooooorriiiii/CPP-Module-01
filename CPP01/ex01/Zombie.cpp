@@ -4,9 +4,7 @@
 
 #include "Zombie.h"
 
-Zombie::Zombie(std::string name) {
-	setZombieName(name);
-}
+Zombie::Zombie() {}
 
 Zombie::~Zombie(void) {
 	std::cout << getZombieName() << " died" << std::endl;
@@ -20,6 +18,7 @@ std::string	Zombie::getZombieName(void) {
 	return _name;
 }
 
-void	Zombie::setZombieName(std::string _ZombieName) {
+void	Zombie::setZombie(std::string _ZombieName) {
 	this->_name = _ZombieName;
+	std::cout << getZombieName() << " is born." << std::endl;
 }
