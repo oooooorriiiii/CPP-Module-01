@@ -1,5 +1,5 @@
-CC			:=	c++
-CFLAGS		:=	-std=c++98 -Wall -Wextra -Werror
+CXX			:=	clang++
+CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Werror
 
 NAME		:=	zombie
 
@@ -10,10 +10,10 @@ SRCS		:=	main.cpp \
 OBJS		:=	$(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS)  -c $< -o $@
+	$(CXX) $(CXXFLAGS)  -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 .PHONY:	all
 all: $(NAME)
