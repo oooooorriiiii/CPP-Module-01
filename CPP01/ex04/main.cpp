@@ -35,7 +35,7 @@ void	replace(std::string filename, std::string s1, std::string s2) {
 }
 
 int main(int argc, char **argv) {
-	if (argc == 4 || argv[1] || argv[2] || argv[3])
+	if (argc == 4 && argv[1] && argv[2] && argv[3])
 		replace(argv[1], argv[2], argv[3]);
 	else
 		std::cerr << "Argument error" << std::endl;
