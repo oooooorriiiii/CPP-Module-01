@@ -33,7 +33,7 @@ void Harl::complain(std::string level) {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++) {
-		if (!levels[i].compare(level)) {
+		if (levels[i] == level) {
 			(this->*arr[i])();
 			return ;
 		}
