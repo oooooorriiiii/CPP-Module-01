@@ -4,25 +4,14 @@
 
 #include "Harl.h"
 
-typedef enum	levelType {
-	DEBUG = 0,
-	INFO,
-	WARNING,
-	ERROR,
-	DEFAULT,
-}				levelType;
-
-levelType getLevelType(const std::string& level) {
-	if (level == "DEBUG")
-		return DEBUG;
-	else if (level == "INFO")
-		return INFO;
-	else if (level == "WARNING")
-		return WARNING;
-	else if (level == "ERROR")
-		return ERROR;
-	else
-		return DEFAULT;
+int getLevelType(const std::string& level) {
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++) {
+		if (levels[i] == level) {
+			return i;
+		}
+	}
+	return (-1);
 }
 
 int main(int argc, char **argv) {
@@ -35,23 +24,23 @@ int main(int argc, char **argv) {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	switch (getLevelType(level))
 	{
-		case DEBUG:
-			std::cout << "[ " + levels[DEBUG] << " ]" << std::endl;
+		case 0:
+			std::cout << "[ " + levels[0] << " ]" << std::endl;
 			harl.complain("DEBUG");
 			std::cout << std::endl;
 			//fall through
-		case INFO:
-			std::cout << "[ " + levels[INFO] << " ]" << std::endl;
+		case 1:
+			std::cout << "[ " + levels[1] << " ]" << std::endl;
 			harl.complain("INFO");
 			std::cout << std::endl;
 			//fall through
-		case WARNING:
-			std::cout << "[ " + levels[WARNING] << " ]" << std::endl;
+		case 2:
+			std::cout << "[ " + levels[2] << " ]" << std::endl;
 			harl.complain("WARNING");
 			std::cout << std::endl;
 			//fall through
-		case ERROR:
-			std::cout << "[ " + levels[ERROR] << " ]" << std::endl;
+		case 3:
+			std::cout << "[ " + levels[3] << " ]" << std::endl;
 			harl.complain("ERROR");
 			std::cout << std::endl;
 			break;
