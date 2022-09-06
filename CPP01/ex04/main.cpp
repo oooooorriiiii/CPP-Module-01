@@ -26,25 +26,30 @@ void	replace(const std::string& filename, const std::string& s1, const std::stri
 		while ((pos = line.find(s1, prev)) != std::string::npos) {
 			ofs << line.substr(prev, pos - prev);
 			if (!ofs.good()) {
+				ifd.close();
 				throw "Write error";
 			}
 			ofs << s2;
 			if (!ofs.good()) {
+				ifd.close();
 				throw "Write error";
 			}
 			prev = pos + s1.length();
 		}
 		if (!ofs.good()) {
+			ifd.close();
 			throw "Write error";
 		}
 		if (!ifd.eof()) {
 			ofs << '\n';
 			if (!ofs.good()) {
+				ifd.close();
 				throw "Write error";
 			}
 		}
 	}
 	ofs.close();
+	ifd.close();
 }
 
 int main(int argc, char **argv) {
