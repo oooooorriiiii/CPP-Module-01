@@ -36,6 +36,7 @@ void	replace(const std::string& filename, const std::string& s1, const std::stri
 			}
 			prev = pos + s1.length();
 		}
+		ofs << line.substr(prev, pos);
 		if (!ofs.good()) {
 			ifd.close();
 			throw "Write error";
