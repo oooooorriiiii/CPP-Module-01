@@ -56,10 +56,6 @@ void	replace(const std::string& filename, const std::string& s1, const std::stri
 int main(int argc, char **argv) {
 	if (argc == 4)
 	{
-		if (static_cast<std::string>(argv[3]).find(static_cast<std::string>(argv[2])) != std::string::npos) {
-			std::cerr << "Error: The original string is contained in the string to be replaced" << std::endl;
-			return 0;
-		}
 		try {
 			replace(argv[1], argv[2], argv[3]);
 		} catch (const char* error) {
